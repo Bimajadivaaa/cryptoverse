@@ -4,7 +4,7 @@ import { Typography, Row, Col, Statistic } from "antd";
 import { Link } from "react-router-dom";
 
 import { useGetCryptosQuery } from "../services/cryptoApi";
-import {Cryptocurrencies, News} from "../components";
+import { Cryptocurrencies, News } from "../components";
 
 const { Title } = Typography;
 const Homepage = () => {
@@ -12,10 +12,8 @@ const Homepage = () => {
   const globalStats = data?.data?.stats;
 
   if (!globalStats) {
-    // If globalStats is still undefined, return an appropriate message or component
     return "Global stats not available";
   }
-
   if (isFetching) return "Loading...";
 
   return (
@@ -60,7 +58,7 @@ const Homepage = () => {
           <Link to="./cryptocurrencies">Show More</Link>
         </Title>
       </div>
-      <Cryptocurrencies simplified/>
+      <Cryptocurrencies simplified />
       <div className="home-heading-container">
         <Title level={2} className="home-title">
           Latest Crypto News
@@ -69,7 +67,7 @@ const Homepage = () => {
           <Link to="./news">Show More</Link>
         </Title>
       </div>
-      <News/>
+      <News />
     </>
   );
 };
