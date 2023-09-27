@@ -8,10 +8,13 @@ import {Cryptocurrencies, News} from "../components";
 
 const { Title } = Typography;
 const Homepage = () => {
-  const { data, isFetching } = useGetCryptosQuery();
+  const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
 
-  console.log(data);
+  if (!globalStats) {
+    // If globalStats is still undefined, return an appropriate message or component
+    return "Global stats not available";
+  }
 
   if (isFetching) return "Loading...";
 
